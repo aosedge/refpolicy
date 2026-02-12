@@ -208,6 +208,25 @@ interface(`files_manage_overlay_aos',`
 
 ########################################
 ## <summary>
+##	Read and write aos conf directories and files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`aos_rw_conf',`
+	gen_require(`
+		type aos_conf_t;
+	')
+
+	allow $1 aos_conf_t:dir rw_dir_perms;
+	allow $1 aos_conf_t:file rw_file_perms;
+')
+
+########################################
+## <summary>
 ##	Allow relabeled /var/aos directory.
 ## </summary>
 ## <param name="domain">
