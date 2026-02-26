@@ -167,6 +167,24 @@ interface(`files_manage_quota_aos',`
 	allow $1 aos_var_run_t:filesystem { quotaget quotamod remount getattr };
 ')
 
+########################################
+## <summary>
+##	Get quotas on aos filesystem.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`aos_get_fs_quotas',`
+	gen_require(`
+		type aos_var_run_t;
+	')
+
+	allow $1 aos_var_run_t:filesystem quotaget;
+')
+
 # allow $1 aos_var_run_t:file { getattr };
 
 ########################################
