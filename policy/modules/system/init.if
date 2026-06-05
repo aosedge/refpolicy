@@ -3096,6 +3096,25 @@ interface(`init_manage_dir_utmp',`
 
 ########################################
 ## <summary>
+##	Mounton initrc runtime files and directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`init_mounton_initrc_runtime',`
+	gen_require(`
+		type initrc_runtime_t;
+	')
+
+	allow $1 initrc_runtime_t:dir mounton;
+	allow $1 initrc_runtime_t:file mounton;
+')
+
+########################################
+## <summary>
 ##	Remove chr file perms from utmp.
 ## </summary>
 ## <param name="domain">

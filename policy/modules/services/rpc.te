@@ -118,6 +118,8 @@ corenet_tcp_bind_generic_port(rpc_domain)
 corenet_udp_bind_generic_port(rpc_domain)
 corenet_tcp_bind_all_rpc_ports(rpc_domain)
 corenet_udp_bind_all_rpc_ports(rpc_domain)
+corenet_tcp_bind_all_unreserved_ports(rpc_domain)
+corenet_udp_bind_all_unreserved_ports(rpc_domain)
 
 fs_rw_rpc_named_pipes(rpc_domain)
 fs_search_auto_mountpoints(rpc_domain)
@@ -245,6 +247,7 @@ can_exec(rpcd_t, rpcd_exec_t)
 
 kernel_read_network_state(rpcd_t)
 kernel_read_sysctl(rpcd_t)
+kernel_read_net_sysctls(rpcd_t)
 kernel_rw_fs_sysctls(rpcd_t)
 kernel_dontaudit_getattr_core_if(rpcd_t)
 kernel_signal(rpcd_t)
@@ -307,6 +310,10 @@ optional_policy(`
 
 optional_policy(`
 	quota_manage_db_files(rpcd_t)
+')
+
+optional_policy(`
+	aos_get_fs_quotas(rpcd_t)
 ')
 
 optional_policy(`

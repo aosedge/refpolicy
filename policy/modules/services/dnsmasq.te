@@ -53,6 +53,8 @@ allow dnsmasq_t dnsmasq_var_log_t:file setattr_file_perms;
 files_read_runtime_files(dnsmasq_t)
 systemd_read_resolved_dir(dnsmasq_t)
 files_map_etc_files(dnsmasq_t)
+init_manage_utmp(dnsmasq_t)
+init_manage_dir_utmp(dnsmasq_t)
 
 systemd_read_resolved_runtime(dnsmasq_t)
 
@@ -107,6 +109,10 @@ userdom_dontaudit_use_unpriv_user_fds(dnsmasq_t)
 userdom_dontaudit_search_user_home_dirs(dnsmasq_t)
 
 files_manage_quota_aos(dnsmasq_t)
+
+init_rw_script_stream_sockets(dnsmasq_t)
+
+aos_rw_conf(dnsmasq_t)
 
 dev_rw_tee_chr_files(dnsmasq_t)
 
