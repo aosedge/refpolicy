@@ -574,6 +574,7 @@ allow container_engine_domain self:bpf { map_create map_read map_write prog_load
 allow container_engine_domain self:fd use;
 allow container_engine_domain self:user_namespace create;
 allow container_engine_domain self:fifo_file manage_fifo_file_perms;
+allow container_engine_domain self:shm create_shm_perms;
 allow container_engine_domain self:tcp_socket create_stream_socket_perms;
 allow container_engine_domain self:udp_socket create_socket_perms;
 allow container_engine_domain self:unix_stream_socket { create_stream_socket_perms connectto };
