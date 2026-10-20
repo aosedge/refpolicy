@@ -3115,6 +3115,25 @@ interface(`init_mounton_initrc_runtime',`
 
 ########################################
 ## <summary>
+##	Create, read, write, and delete initrc runtime named pipes.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`init_manage_initrc_runtime_fifo_files',`
+	gen_require(`
+		type initrc_runtime_t;
+	')
+
+	files_search_runtime($1)
+	allow $1 initrc_runtime_t:fifo_file manage_fifo_file_perms;
+')
+
+########################################
+## <summary>
 ##	Remove chr file perms from utmp.
 ## </summary>
 ## <param name="domain">
