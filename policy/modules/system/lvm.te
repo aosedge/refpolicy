@@ -219,6 +219,7 @@ sysnet_write_config(lvm_t)
 userdom_use_inherited_user_terminals(lvm_t)
 
 manage_aos_sem(lvm_t)
+aos_read_pid_files(lvm_t)
 
 files_allow_manage_var_files(lvm_t)
 files_manage_var_dirs(lvm_t)
@@ -227,6 +228,7 @@ fs_search_cgroup_dirs(lvm_t)
 miscfiles_manage_generic_cert_dirs(lvm_t)
 fs_manage_bpf_dirs(lvm_t)
 init_search_keys(lvm_t)
+init_search_script_keys(lvm_t)
 miscfiles_manage_generic_cert_files(lvm_t)
 
 init_rw_script_stream_sockets(lvm_t)
